@@ -29,11 +29,15 @@ class Scanner extends Component {
   handleScan = data => {
     if (data) {
       var obj = JSON.parse(data);
-      this.setState({
-        result: obj.bearerToken
-      });
 
-      window.location.href = "https://www.youtube.com/";
+      // this.setState({
+      //   result: obj.bearerToken
+      // });
+      if (obj.authenticated) {
+        window.location.href = "http://e636d5eb.ngrok.io/true";
+      } else {
+        window.location.href = "http://e636d5eb.ngrok.io";
+      }
     }
   };
 
